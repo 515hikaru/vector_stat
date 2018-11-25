@@ -61,15 +61,12 @@ fn mode(vec: &Vec<i32>) -> i32 {
         *counter += 1;
     }
     let mut m = -1;
-    for (_key, val) in map.iter() {
+    let mut max_key = -1;
+    for (key, val) in map.iter() {
         if *val > m {
             m = *val;
+            max_key = **key;
         }
     }
-    for (key, val) in map.iter() {
-        if *val == m {
-            return **key;
-        }
-    }
-    return -1;
+    max_key
 }
